@@ -32,7 +32,7 @@ wrapper.addEventListener("click", (e) => {
     };
 
     circles.push(obj);
-    console.log(circles);
+    // console.log(circles);
     printCircle();
     buttonStatus();
   }
@@ -52,6 +52,16 @@ redo.addEventListener("click", () => {
   console.log(circles[circles.length - 1]);
   printCircle();
 });
+reset.addEventListener("click",() =>{
+
+const circleDivs = wrapper.querySelectorAll(".circle");
+
+  circleDivs.forEach((circle) => {
+    circle.remove();
+  });
+
+
+});
 
 function printCircle() {
   const lastObj = circles[circles.length - 1];
@@ -64,7 +74,8 @@ function printCircle() {
   //<div class="circle"style="top:600px;left:400px"
   wrapper.append(circle);
 }
-function removeCircle(){
+function removeCircle()
+{
     const circleDivs=wrapper.querySelectorAll(".circle");
     circleDivs[circleDivs.length-1].remove();
 }
@@ -73,6 +84,7 @@ function buttonStatus() {
   if (circles.length > 0) {
     undo.disabled = false;
     redo.disabled = false;
+    reset.disabled =false;
   }
 }
 function getRandomColor() {
